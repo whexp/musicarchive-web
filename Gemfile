@@ -7,7 +7,7 @@ gem "builder"
 
 gem "redcarpet"
 gem "middleman"
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', require: false
 gem 'therubyracer'
 
 # Compass plugins
