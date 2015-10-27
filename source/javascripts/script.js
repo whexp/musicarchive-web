@@ -1,4 +1,5 @@
-/* Author: 
+//= require jquery
+/* Author:
 
 */
 
