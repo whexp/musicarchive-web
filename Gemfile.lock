@@ -40,6 +40,8 @@ GEM
     erubis (2.7.0)
     execjs (2.6.0)
     ffi (1.9.10)
+    font-awesome-middleman (4.4.0)
+      middleman-core (~> 3.0)
     haml (4.0.7)
       tilt
     hike (1.2.3)
@@ -137,6 +139,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   builder
+  font-awesome-middleman
   haml
   jquery-middleman
   middleman
