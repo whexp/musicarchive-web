@@ -8,7 +8,7 @@ gem "builder"
 gem "redcarpet"
 gem "middleman"
 gem 'bootstrap-sass', require: false
-gem 'therubyracer'
+gem 'therubyracer', :platforms=> [:mri]
 
 # Compass plugins
 gem 'susy', "~>1.0.1" # Susy
