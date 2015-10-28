@@ -46,6 +46,10 @@ end
 # Change the images directory
 # set :images_dir, "alternative_image_directory"
 
+activate :bootstrap_navbar do |bootstrap_navbar|
+  bootstrap_navbar.bootstrap_version = '3.0.3'
+end
+
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment

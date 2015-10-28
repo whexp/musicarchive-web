@@ -8,6 +8,8 @@ gem "builder"
 gem "redcarpet"
 gem "middleman"
 gem 'bootstrap-sass', require: false
+gem 'middleman-bootstrap-navbar'
+
 gem 'therubyracer' unless RUBY_PLATFORM =~ /cygwin/
 
 # Compass plugins

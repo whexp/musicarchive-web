@@ -6,7 +6,7 @@
   %meta{'http-equiv' => "X-UA-Compatible", :content =>"IE=edge,chrome=1"}
 
   -# Pull in the page title
-  %title= @title
+  %title= @title||data.page.title
 
   %meta{:name => "description", :content => ""}
   %meta{:name => "author", :content => ""}
@@ -18,25 +18,16 @@
 
 %body
   .container
-    .navbar.navbar-inverse.navbar-fixed-top
-      .navbar-header
-        %button.navbar-toggle.collapsed{ 'data-toggle' => "collapse",  "data-target" => ".nav-collapse" }
-          %span.sr-only Toggle navigation
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand{ "href" =>"#"} Music Archive
-      .navbar-collapse.collapse
-        %ul.nav.navbar-nav
-          %li.active
-            %a{ "href" =>"#" }
-              Home
-              .sr-only (current)
-          %li
-            %a{ "href" => "#"} About
-          %li
-            %a{ "href" => "#" } Contact
-    %h1= @title
+    = navbar inverse: true, fixed: :top do
+      = navbar_header brand:"Music Archive", brand_link: '/'
+      = navbar_collapse do
+        = navbar_group do
+          = navbar_item "Home", '/'
+          = navbar_item "Recent", '/recent.html'
+          = navbar_item "Top Downloads", '/top_downloads.html'
+          = navbar_item "Top Artists", '/top_artists.html'
+
+    %h1= @title||data.page.title
     ~ yield
 
     %footer
