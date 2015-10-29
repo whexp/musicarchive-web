@@ -14,3 +14,4 @@ gem 'therubyracer' unless RUBY_PLATFORM =~ /cygwin/
 gem 'susy', "~>1.0.1" # Susy
 gem "jquery-middleman"
 # gem 'compass-960-plugin' # 960.gs
+gem "rest-client"
