@@ -1,0 +1,32 @@
+<%-
+@title = "Music Archive DB - Top Artists"
+response = RestClient.get('http://localhost:9292/top_artists.json')
+@data = JSON::parse(response.body)
+
+@total_downloads = @data.values.inject{|sum, i| sum+i }
+
+%>
+<ul class="list-group">
+<%- @data.each do |(k, v)| %>
+  <li class="list-group-item">
+    <span class="badge"><%= v %></span>
+    <%= k %>
+  </li>
+<%- end %>
+</ul>
+
+<%- @data.each do |(k, v)| 
+  @percent = (v/@total_downloads.to_f) * 100.0
+%>
+<div class="progress">
+  <div class="progress-bar progress-bar-success" style="width: <%= @percent %>%">
+    <span class="sr-only"><%= k %></span>
+  </div>
+</div>
+<%- end %>
+
+
+          </div>
+      </div>
+  </div>
+</div>

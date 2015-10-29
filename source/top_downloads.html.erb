@@ -1,0 +1,31 @@
+<%-
+@title = "Music Archive DB - Top Downloads"
+response = RestClient.get('http://localhost:9292/top_downloads.json')
+@data = JSON::parse(response.body)
+%>
+
+<div class="container">
+  <div class="hero-unit">
+      <div class="row-fluid">
+          <div class="offset4 span4">
+            <table style="color:#B9B8B8">
+                <table class='table table-striped table-bordered' style="color:#777070">
+                  <tr>
+                      <th>Artist&nbsp;<i class="glyphicon glyphicon-eye-open"></i></th>
+                      <th>Song Title&nbsp;<i class="glyphicon glyphicon-headphones"></i></th>
+                      <th>Downloads&nbsp;<i class="glyphicon glyphicon-download"></i></th>
+                      <th>Date Created&nbsp;<i class="glyphicon glyphicon-dashboard"></i></th>
+                  </tr>
+                  <%- @data.each do |track| %>
+                  <tr>
+                      <td><%= track['artist'] %></td>
+                      <td><%= track['title'] %></td>
+                      <td><%= track['downloads'] %></td>
+                      <td><%= track['date_created'] %></td> 
+                  </tr>
+              <%- end %>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>
