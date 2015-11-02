@@ -1,0 +1,46 @@
+---
+title: Top Artists
+---
+<div class="container">
+  <div class="hero-unit">
+      <div class="row-fluid">
+          <div class="offset4 span4">
+
+         <ul class="list-group">
+</ul>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+<script type='text/javascript'>
+ window.onload = function () {
+  console.log("Loaded page..");
+  $.ajax({
+    type: "GET",
+    url:  "http://localhost:9292/top_artists",
+    success: function(results){
+      $.each(results, function(artist,downloads){
+        $('ul.list-group').append(
+          $('<li class="list-group-item list-group-item-info">')
+            .append($('<span class="badge">').append( downloads ))
+            .append( artist )
+        );
+        $('.progress').hide()
+      });
+    },
+    error: function(results){
+      // What to do when the ajax fails.
+      console.log("ERROR");
+      $("div#response").html(results);
+    }
+  });
+};
+</script>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="160" aria-valuemin="60" aria-valuemax="80" style="width: 100%">
+    <span class="sr-only">100% Complete</span>
+    Loading...
+  </div>
